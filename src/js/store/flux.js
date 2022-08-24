@@ -17,7 +17,7 @@ export const getState = ({ getStore, getActions, setStore }) => {
 			headers: { "Content-type": "application/json" },
 		  })
 			.then((response) => response.json())
-			.then((response) => setStore({ character: response.results }));
+			.then((response) => setStore({ character: response.results},localStorage.setItem("character",response.results)));
 		},
 		fetchPlanets: () => {
 		  fetch("https://swapi.dev/api/planets",{
@@ -25,7 +25,7 @@ export const getState = ({ getStore, getActions, setStore }) => {
 			headers: {"Content-type": "application/json"},
 		  })
 			.then((response)=>response.json())
-			.then((response)=> setStore({planets: response.results}))
+			.then((response)=> setStore({planets: response.results},localStorage.setItem("planets",response.results)));
 		},
 		fetchVehicles:() => {
 		  fetch("https://swapi.dev/api/vehicles", {
@@ -33,7 +33,7 @@ export const getState = ({ getStore, getActions, setStore }) => {
 			headers: {"Content-type": "application/json"},
 		  })
 			.then((response)=>response.json())
-			.then((response)=>setStore({vehicles:response.results}))
+			.then((response)=>setStore({vehicles:response.results},localStorage.setItem("vehicles",response.results)));
 		},
 		addFavorite:(item)=>{
 			const store = getStore();
