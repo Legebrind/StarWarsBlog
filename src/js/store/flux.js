@@ -36,9 +36,7 @@ export const getState = ({ getStore, getActions, setStore }) => {
 			.then((response)=>setStore({vehicles:response.results}))
 		},
 		addFavorite:(item)=>{
-			//consultar sobre guardar getStore y getAction en variables
 			const store = getStore();
-			/* const actions = getActions(); */
 			setStore({favoriteList:[...store.favoriteList,item]})
 		  },
 		deleteFavorite:(i)=>{
