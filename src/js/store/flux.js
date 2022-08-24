@@ -35,12 +35,17 @@ export const getState = ({ getStore, getActions, setStore }) => {
 			.then((response)=>response.json())
 			.then((response)=>setStore({vehicles:response.results}))
 		},
-		/* pokemonVehicleImages:()=>{
-			
-			let mapVehicles = )
-   			setStore({vehiclesurl:mapVehicles});
-			console.log(store.vehiclesurl)
-		} */
+		addFavorite:(item)=>{
+			//consultar sobre guardar getStore y getAction en variables
+			const store = getStore();
+			/* const actions = getActions(); */
+			setStore({favoriteList:[...store.favoriteList,item]})
+		  },
+		deleteFavorite:(i)=>{
+			const store = getStore();
+			const newList = store.favoriteList.filter((item,index)=>index !==i)
+			setStore({favoriteList:newList})		
+		}
 	  },
 	};
   };

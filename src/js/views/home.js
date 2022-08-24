@@ -1,7 +1,5 @@
 import React, { useEffect, useContext } from "react";
-import CardCharacters from "../component/cardcharacter.jsx";
-import CardPlanet from "../component/cardplanet.jsx";
-import CardVehicles from "../component/cardvehicle.jsx";
+import Cards from "../component/cards.jsx";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
 
@@ -22,19 +20,19 @@ export const Home = () => {
 		<div className="row">
 			<h1 className="text-warning py-1">Characters</h1>
 			<div className="d-flex overflow-auto">
-				{store.character.map((item,i)=> <div><CardCharacters key={i} index={i} contador={i+1} /></div>)}
+				{store.character.map((item,i)=> <div><Cards key={i} index={i} contador={i+1} type="character" /></div>)}
 			</div>
 		</div>
 		<div className="row">
 			<h1 className="text-warning py-1">Planets</h1>
 			<div className="d-flex overflow-auto">
-				{store.planets.map((item,i)=> <div><CardPlanet key={i} index={i} contador={i+1} /></div>)}
+				{store.planets.map((item,i)=> <div><Cards key={i} index={i} contador={i+1} type="planet" /></div>)}
 			</div>
 		</div>
 		<div className="row">
 			<h1 className="text-warning py-1">Vehicles</h1>
 			<div className="d-flex overflow-auto">
-				{store.vehicles.map((item,i)=> <div><CardVehicles key={i} index={i} contador={i+1}/></div>)}
+				{store.vehicles.map((item,i)=> <div><Cards key={i} index={i} contador={i+1} type="vehicle" /></div>)}
 			</div>
 		</div>
 	</div>
