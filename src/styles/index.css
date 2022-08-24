@@ -4,3 +4,25 @@
 .remwidth{
     width: 18rem;
 }
+
+.spaceBackground{
+    background-image: url("../img/background.jpg");
+}
+
+.iconBrand{
+    border-radius: 100%;
+    width: 4rem;
+    margin-left: 15px;
+}
+
+.customHeight{
+    height: 100hw;
+}
+
+.customWidth{
+    width: 40rem;
+}
+
+.customMaxHeight{
+    max-height: 270px;
+}

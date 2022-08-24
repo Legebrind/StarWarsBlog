@@ -1,10 +1,13 @@
 export const getState = ({ getStore, getActions, setStore }) => {
+	let vehiclesIdArray= [4, 6, 7, 8, 14, 16, 18, 19, 20, 24];
+	
 	return {
 	  store: {
 		character: [],
 		planets:[],
 		vehicles:[],
 		favoriteList:[],
+		vehiclesurl: vehiclesIdArray.map((id)=>("https://starwars-visualguide.com/assets/img/vehicles/"+id+".jpg"))
 
 	  },
 	  actions: {
@@ -32,6 +35,12 @@ export const getState = ({ getStore, getActions, setStore }) => {
 			.then((response)=>response.json())
 			.then((response)=>setStore({vehicles:response.results}))
 		},
+		/* pokemonVehicleImages:()=>{
+			
+			let mapVehicles = )
+   			setStore({vehiclesurl:mapVehicles});
+			console.log(store.vehiclesurl)
+		} */
 	  },
 	};
   };
