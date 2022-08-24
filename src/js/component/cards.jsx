@@ -34,9 +34,18 @@ const Cards = (props) => {
                   Learn more!
                 </span>
               </Link>
-              {!store.favoriteList.includes(store.character[props.index].name) ?
-              <i className="fa-regular fa-star" onClick={() => actions.addFavorite(store.character[props.index].name)}></i> :
-              <i className="fa-solid fa-star"></i>}
+              {!store.favoriteList.includes(
+                store.character[props.index].name
+              ) ? (
+                <i
+                  className="fa-regular fa-star"
+                  onClick={() =>
+                    actions.addFavorite(store.character[props.index].name)
+                  }
+                ></i>
+              ) : (
+                <i className="fa-solid fa-star"></i>
+              )}
             </div>
           </div>
         </div>
@@ -70,9 +79,16 @@ const Cards = (props) => {
                   Learn more!
                 </span>
               </Link>
-              {!store.favoriteList.includes(store.planets[props.index].name) ?
-              <i className="fa-regular fa-star" onClick={() => actions.addFavorite(store.planets[props.index].name)}></i> :
-              <i className="fa-solid fa-star"></i>}
+              {!store.favoriteList.includes(store.planets[props.index].name) ? (
+                <i
+                  className="fa-regular fa-star"
+                  onClick={() =>
+                    actions.addFavorite(store.planets[props.index].name)
+                  }
+                ></i>
+              ) : (
+                <i className="fa-solid fa-star"></i>
+              )}
             </div>
           </div>
         </div>
@@ -105,9 +121,18 @@ const Cards = (props) => {
                   Learn more!
                 </span>
               </Link>
-              {!store.favoriteList.includes(store.vehicles[props.index].name) ?
-              <i className="fa-regular fa-star" onClick={() => actions.addFavorite(store.vehicles[props.index].name)}></i> :
-              <i className="fa-solid fa-star"></i>}
+              {!store.favoriteList.includes(
+                store.vehicles[props.index].name
+              ) ? (
+                <i
+                  className="fa-regular fa-star"
+                  onClick={() =>
+                    actions.addFavorite(store.vehicles[props.index].name)
+                  }
+                ></i>
+              ) : (
+                <i className="fa-solid fa-star"></i>
+              )}
             </div>
           </div>
         </div>
