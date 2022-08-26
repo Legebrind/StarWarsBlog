@@ -13,44 +13,62 @@ export const getState = ({ getStore, getActions, setStore }) => {
       ),
     },
     actions: {
-      fetchCharacter: () => {
+      fetchCharacter: (localIsFilled) => {
         fetch("https://swapi.dev/api/people", {
           method: "GET",
           headers: { "Content-type": "application/json" },
         })
           .then((response) => response.json())
           .then((response) =>
+            localIsFilled ?
+            setStore(
+              { character:JSON.parse(localStorage.getItem("character"))})
+            :
             setStore(
               { character: response.results },
-              localStorage.setItem("character", response.results)
+              localStorage.setItem("character", JSON.stringify(response.results)),
+              console.log(JSON.parse(localStorage.getItem("character")))
+              
             )
           );
       },
-      fetchPlanets: () => {
+      fetchPlanets: (localIsFilled) => {
         fetch("https://swapi.dev/api/planets", {
           method: "GET",
           headers: { "Content-type": "application/json" },
         })
           .then((response) => response.json())
           .then((response) =>
-            setStore(
-              { planets: response.results },
-              localStorage.setItem("planets", response.results)
-            )
-          );
+          localIsFilled ?
+          setStore(
+            { planets:JSON.parse(localStorage.getItem("planets"))})
+          :
+          setStore(
+            { planets: response.results },
+            localStorage.setItem("planets", JSON.stringify(response.results)),
+            console.log(JSON.parse(localStorage.getItem("planets")))
+            
+          )
+        );
       },
-      fetchVehicles: () => {
+      fetchVehicles: (localIsFilled) => {
         fetch("https://swapi.dev/api/vehicles", {
           method: "GET",
           headers: { "Content-type": "application/json" },
         })
           .then((response) => response.json())
           .then((response) =>
-            setStore(
-              { vehicles: response.results },
-              localStorage.setItem("vehicles", response.results)
-            )
-          );
+          localIsFilled ?
+          setStore(
+            { vehicles:JSON.parse(localStorage.getItem("vehicles"))})
+          :
+          setStore(
+            { vehicles: response.results },
+            localStorage.setItem("vehicles", JSON.stringify(response.results)),
+            console.log(JSON.parse(localStorage.getItem("vehicles")))
+            
+          )
+        );
       },
       addFavorite: (item) => {
         const store = getStore();

@@ -21,6 +21,7 @@ const Cards = (props) => {
             className="card-img-top"
             alt="..."
           />
+          {console.log(localStorage.getItem("character"))}
           <div className="card-body">
             <h5 className="card-title">{store.character[props.index].name}</h5>
             <div className="card-text">
