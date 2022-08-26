@@ -25,11 +25,8 @@ export const getState = ({ getStore, getActions, setStore }) => {
               { character:JSON.parse(localStorage.getItem("character"))})
             :
             setStore(
-              { character: response.results },
-              localStorage.setItem("character", JSON.stringify(response.results)),
-              console.log(JSON.parse(localStorage.getItem("character")))
-              
-            )
+              { character: response.results }    
+            ).addToLocal("vehicles",response.results)
           );
       },
       fetchPlanets: (localIsFilled) => {
@@ -44,11 +41,8 @@ export const getState = ({ getStore, getActions, setStore }) => {
             { planets:JSON.parse(localStorage.getItem("planets"))})
           :
           setStore(
-            { planets: response.results },
-            localStorage.setItem("planets", JSON.stringify(response.results)),
-            console.log(JSON.parse(localStorage.getItem("planets")))
-            
-          )
+            { planets: response.results }
+          ).addToLocal("vehicles",response.results)
         );
       },
       fetchVehicles: (localIsFilled) => {
@@ -63,11 +57,8 @@ export const getState = ({ getStore, getActions, setStore }) => {
             { vehicles:JSON.parse(localStorage.getItem("vehicles"))})
           :
           setStore(
-            { vehicles: response.results },
-            localStorage.setItem("vehicles", JSON.stringify(response.results)),
-            console.log(JSON.parse(localStorage.getItem("vehicles")))
-            
-          )
+            { vehicles: response.results }
+          ).addToLocal("vehicles",response.results)
         );
       },
       addFavorite: (item) => {
@@ -79,6 +70,10 @@ export const getState = ({ getStore, getActions, setStore }) => {
         const newList = store.favoriteList.filter((item, index) => index !== i);
         setStore({ favoriteList: newList });
       },
+      addToLocal:(key,value) =>{
+        localStorage.setItem(key, JSON.stringify(value));
+        
+      }
     },
   };
 };

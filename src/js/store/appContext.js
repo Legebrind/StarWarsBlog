@@ -24,31 +24,13 @@ const injectContext = (PassedComponent) => {
     );
 
     useEffect(() => {
-      let localIsFilled = false;
-      localStorage.getItem("character") || localStorage.getItem("planets") || localStorage.getItem("vehicles") ?
-      localIsFilled = true : null;
+      let localIsFilled = localStorage.getItem("character") || localStorage.getItem("planets") || localStorage.getItem("vehicles") ? true: false;
       state.actions.fetchCharacter(localIsFilled);
       state.actions.fetchPlanets(localIsFilled);
       state.actions.fetchVehicles(localIsFilled);
+      
 
-      /* if (localStorage.getItem("character")) {
-        setState( {store.character: JSON.parse(localStorage.getItem("character"))} );
-        localIsFilled = true;
-        state.actions.fetchCharacter(localIsFilled)
-        console.log("Estoy en la memoria local1");
-      } else {
-        state.actions.fetchCharacter();
-      }
-      if (sessionStorage.getItem("planets")) {
-        state.setStore({ planets: JSON.parse(localStorage.getItem("planets")) });
-      } else {
-        state.actions.fetchPlanets();
-      }
-      if (sessionStorage.getItem("vehicles")) {
-        state.setStore({ vehicles: JSON.parse(localStorage.getItem("vehicles")) });
-      } else {
-        state.actions.fetchVehicles();
-      } */
+     
     }, []);
 
     // The initial value for the context is not null anymore, but the current state of this component,
